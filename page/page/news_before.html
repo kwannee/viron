@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRON</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Quicksand&display=swap" rel="stylesheet">
+    
+    <link href="../dist/hamburgers.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="../img/favicon.png" type="image/x-icon">
+    <script src="../script/firebase-news.js"></script>
+    <script src="https://kit.fontawesome.com/e70a59fd4c.js" crossorigin="anonymous"></script>
+    <script src="../script/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-wrapper item">
+                <a class="brand" href="../index.html"><div class="upper-logo">VIRON</div><div class="lower-logo">Landscape design & Construction</div></a>
+                <a class="hamburger hamburger--squeeze" type="button">
+                    <span class="hamburger-box">
+                      <span class="hamburger-inner"></span>
+                    </span>
+                </a>
+                <nav class="menu-nav">
+                    <ul class="menu-ul">
+                        <li class="menu-item dropdown about"><a href="#none">VIRON <i class="fas fa-caret-down"></i></a>
+                            <ul class="dropdown-menu about-drop">
+                                <li><a href="about.html">Philosophy</a></li>
+                                <li><a href="people.html">People</a></li>
+                                <li><a href="news.html">News</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown menu-item projects"><a href="#">PROJECTS <i class="fas fa-caret-down"></i></a>
+                            <ul class="dropdown-menu pj-drop">
+                                <li><a href="project.html">All Projects</a></li>
+                                <li><p>FILTERED BY YEAR</p></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown menu-item contact"><a href="#">OFFICE <i class="fas fa-caret-down"></i></a>
+                            <ul class="dropdown-menu contact-drop">
+                                <li><a href="archive.html">License</a></li>
+                                <li><a href="recruiting.html">Recruiting</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item"><input type="text"></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="news-container">
+            <ul class="news-ul">
+            </ul>
+        </div>
+        <footer class="item">
+            <div class="footer-letter">
+                <p>A. 04774 서울특별시 성동구 성덕정길 25 2층</p>
+                <p>E. mail@viron.kr</p>
+                <p>Copyright © 2020 VIRON Corp. All rights reserved</p>
+            </div>
+            <div class="footer-sns">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin-in"></i>
+                <i class="fab fa-google"></i>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

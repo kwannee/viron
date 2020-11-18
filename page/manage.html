@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/e70a59fd4c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/manage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-database.js"></script>
+    <script src="../script/firebase-manage.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="manage-box">
+            <div class="menu-list">
+                <select id="menu-item1" name="menu-item1">
+                    <option value="" disabled selected></option>
+                    <option value="project-area">PROJECTS</option>
+                    <option value="about">ABOUT</option>
+                    <option value="people">PEOPLE</option>
+                    <option value="welcome-area">WELCOME</option>
+                </select>
+                <div class="btn-box">
+                    <p>작업을 선택해 주세요.</p>
+                    <option value="" disabled selected></option>
+                    <button style="display: none;" class="btn add">추가</button>
+                    <button class="btn modify">수정</button>
+                </div>
+                <select name="menu-item2" id="menu-item2">
+                    <option value="" disabled selected></option>
+                </select>
+                <select name="menu-item3" id="menu-item3">
+                    <option value="" disabled selected></option>
+                </select>
+            </div>
+            <div class="firebase-box">
+                <div class="project-area">
+                    <div class="pj-wrapper">
+                        <form method="post" action="upload" enctype="multipart/form-data">
+                            <div>
+                                <a class="upload_img_box" onclick="uploadimage()">사진 업로드</a>
+                                <input style="display: none;" type="file" id="image" accept="image/*"
+                                    onchange="setThumbnail(event);" multiple />
+                                <div id="image_container"></div>
+                            </div>
+                        </form>
+                        <div class="year">year : <input type="text"></div>
+                        <div class="name">name : <input type="text"></div>
+                        <div class="subtitle">subtitle : <input type="text"></div>
+                        <div class="area">area : <input type="text"></div>
+                        <div class="client">client : <input type="text"></div>
+                        <div class="collaboration">collaboration : <input type="text"></div>
+                        <div class="location">location : <input type="text"></div>
+                        <div class="status">status : <input type="text"></div>
+                        <div class="paragraph">
+                            <p>paragraph</p>
+                            <div class="text">
+                                <div class="para-text-box">
+                                    <p>text</p><button class="para-add para-btn">추가</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="project-submit submit" onclick="pj_submit()">제출</button>
+                            <button class="submit delete" onclick="pj_delete()">삭제</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="about">
+                    <div class="general-wrapper">
+                        <form method="post" action="upload" enctype="multipart/form-data">
+                            <div>
+                                <a class="upload_img_box" onclick="uploadimage()">사진 업로드</a>
+                                <input style="display: none;" type="file" id="image" accept="image/*"
+                                    onchange="setThumbnail(event);" />
+                                <div id="image_container"></div>
+                            </div>
+                        </form>
+                        <div class="paragraph">
+                            <div class="sub_title">
+                                <div class="para-text-box">
+                                    <p>sub_title</p><button class="para-add para-btn">추가</button>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="para-text-box">
+                                    <p>text</p><button class="para-add para-btn">추가</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="submit-box">
+                            <button class="about-submit submit" onclick="about_submit()">제출</button>
+                            <button class="about-delete submit" onclick="about_delete()">삭제</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="news"  style="display: none;">
+                    <div class="general-wrapper">
+                        <form method="post" action="upload" enctype="multipart/form-data">
+                            <div>
+                                <a class="upload_img_box" onclick="uploadimage()">사진 업로드</a>
+                                <input style="display: none;" type="file" id="image" accept="image/*"
+                                    onchange="setThumbnail(event);" />
+                                <div id="image_container"></div>
+                            </div>
+                        </form>
+                        <div class="paragraph">
+                            <div class="title">
+                                <div class="para-text-box">
+                                    <p>title</p><input class="news_title" type="text"><button class="para-add para-btn">추가</button>
+                                </div>
+                            </div><div class="date">
+                                <div class="para-text-box">
+                                    <p>date</p><input class="news_date" type="text"><button class="para-add para-btn">추가</button>
+                                </div>
+                            </div>
+                            <div class="link">
+                                <div class="para-text-box">
+                                    <p>link</p><input class="news_link" type="text"><button class="para-add para-btn">추가</button>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="para-text-box">
+                                    <p>text</p><textarea class="news_text"></textarea><button class="para-add para-btn">추가</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="submit-box">
+                            <button class="about-submit submit" onclick="news_submit()">제출</button>
+                            <button class="about-delete submit" onclick="news_delete()">삭제</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="people" style="display: none;">
+                    <div class="general-wrapper">
+                        <form method="post" action="upload" enctype="multipart/form-data">
+                            <div>
+                                <a class="upload_img_box" onclick="uploadimage()">사진 업로드</a>
+                                <input style="display: none;" type="file" id="image" accept="image/*"
+                                    onchange="setThumbnail(event);" />
+                                <div id="image_container"></div>
+                            </div>
+                        </form>
+                        <div class="name">
+                            <div class="para-text-box">
+                                <p>name</p>
+                                <input class="people_name" type="text">
+                            </div>
+                        </div>
+                        <div class="position">
+                            <div class="para-text-box">
+                                <p>position</p>
+                                <input class="people_position" type="text">
+                            </div>
+                        </div>
+                        <div class="text">
+                            <div class="para-text-box">
+                                <p>text</p>
+                                <textarea class="people_text"></textarea>
+                            </div>
+                        </div>
+                        <div class="submit-box">
+                            <button class="people-submit submit" onclick="people_submit()">제출</button>
+                            <button class="people-delete submit" onclick="people_delete()">삭제</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="AwardsAndCompetition">
+                    <div class="general-wrapper">
+                        <div class="awards">
+                            <button onclick="awards_add(event)" class="para-btn">추가</button>
+
+                        </div>
+                        <div class="competition">
+                            <button onclick="awards_add(event)" class="para-btn">추가</button>
+
+                        </div>
+                        <div class="submit-box">
+                            <button class="about-submit submit" onclick="awards_submit()">제출</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="welcome-area">
+                    <div class="general-wrapper">
+                        <form method="post" action="upload" enctype="multipart/form-data">
+                            <div>
+                                <a class="upload_img_box" onclick="uploadimage()">사진 업로드</a>
+                                <input style="display: none;" type="file" id="image" accept="image/*"
+                                    onchange="setThumbnail(event);" />
+                                <div id="image_container"></div>
+                            </div>
+                        </form>
+                        <div class="submit-box">
+                            <button class="about-submit submit" onclick="welcome_submit()">제출</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
